@@ -147,6 +147,7 @@ public:
 
     void deallocate(T* p, size_t n)
     {
+        (void)n; // mark n as unused
         alignedDelete(p);
     }
 
