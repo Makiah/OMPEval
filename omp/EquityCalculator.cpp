@@ -70,7 +70,7 @@ bool EquityCalculator::start(const std::vector<CardRange>& handRanges, uint64_t 
 // Regular monte carlo simulation.
 void EquityCalculator::simulateRegularMonteCarlo()
 {
-    unsigned nplayers = (unsigned)mHandRanges.size();
+    unsigned nplayers = static_cast<unsigned int>(mHandRanges.size());
     Hand fixedBoard = getBoardFromBitmask(mBoardCards);
     unsigned remainingCards = BOARD_CARDS - fixedBoard.count();
     BatchResults stats(nplayers);
@@ -80,7 +80,7 @@ void EquityCalculator::simulateRegularMonteCarlo()
     FastUniformIntDistribution<unsigned,21> comboDists[MAX_PLAYERS];
     unsigned combinedRangeCount = mCombinedRangeCount;
     for (unsigned i = 0; i < mCombinedRangeCount; ++i)
-        comboDists[i] = FastUniformIntDistribution<unsigned,21>(0, (unsigned)mCombinedRanges[i].combos().size() - 1);
+        comboDists[i] = FastUniformIntDistribution<unsigned,21>(0, static_cast<unsigned int>(mCombinedRanges[i].combos().size()) - 1);
 
     for (;;) {
         // Randomize hands and check for duplicate holecards.
@@ -787,8 +787,8 @@ void EquityCalculator::outputLookupTable() const
 {
     std::vector<std::array<unsigned,3>> a;
     for (auto& e: mLookup) {
-        a.push_back({(unsigned)e.first, (unsigned)e.second.winsByPlayerMask[1],
-                     (unsigned)e.second.winsByPlayerMask[3]});
+        a.push_back({static_cast<unsigned int>(e.first), static_cast<unsigned int>(e.second.winsByPlayerMask[1]),
+                     static_cast<unsigned int>(e.second.winsByPlayerMask[3])});
     }
     std::sort(a.begin(), a.end(), [](const std::array<unsigned,3>& lhs, const std::array<unsigned,3>& rhs){
         return lhs[0] < rhs[0];
