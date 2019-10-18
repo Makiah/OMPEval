@@ -397,22 +397,22 @@ void printBuildInfo()
     #endif
 }
 
-int main()
-{
-    printBuildInfo();
-
-    cout << endl << "=== Tests ===" << endl;
-    cout << "Util:" << endl;
-    UtilTest().run();
-    cout << "Hand:" << endl;
-    HandTest().run();
-    cout << "HandEvaluator:" << endl;
-    HandEvaluatorTest().run();
-    cout << "EquityCalculator:" << endl;
-    EquityCalculatorTest().run();
-
-    cout << endl << endl << "=== Benchmarks ===" << endl;
-    void benchmark();
-    benchmark();
-    cout << endl << "Done." << endl;
-}
+//int main()
+//{
+//    printBuildInfo();
+//
+//    cout << endl << "=== Tests ===" << endl;
+//    cout << "Util:" << endl;
+//    UtilTest().run();
+//    cout << "Hand:" << endl;
+//    HandTest().run();
+//    cout << "HandEvaluator:" << endl;
+//    HandEvaluatorTest().run();
+//    cout << "EquityCalculator:" << endl;
+//    EquityCalculatorTest().run();
+//
+//    cout << endl << endl << "=== Benchmarks ===" << endl;
+//    void benchmark();
+//    benchmark();
+//    cout << endl << "Done." << endl;
+//}
